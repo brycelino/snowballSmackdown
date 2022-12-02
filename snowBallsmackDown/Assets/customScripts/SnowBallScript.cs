@@ -33,7 +33,7 @@ public class SnowBallScript : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
-            playerController pCTRL = collision.GetComponent<playerController>();
+            PlayerController pCTRL = collision.GetComponent<PlayerController>();
             if (pCTRL.pIndex == 1) gameManager.p1Health -= 10;
            
             Debug.Log("Hit ConnectP1");
@@ -46,7 +46,7 @@ public class SnowBallScript : MonoBehaviour
 
         if (collision.gameObject.tag == "PlayerTwo")
         {
-            playerController pCTRL = collision.GetComponent<playerController>();
+            PlayerController pCTRL = collision.GetComponent<PlayerController>();
             
             if (pCTRL.pIndex == 2) gameManager.p2Health -= 10;
             Debug.Log("Hit ConnectP2");

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 5f; // controls how fast our player will move
     [SerializeField] float jumpForce = 5f; // controls how high the player will jump
@@ -25,7 +25,7 @@ public class playerController : MonoBehaviour
 
     //throwing snowballs 
     public int playerOneSBalls = 5;
-    public int playerTwoSBalls = 10;
+    public int Snowballs = 2;
     
     [SerializeField] float ballSpeed = 100f; // speed of snowball 
     [SerializeField] float ballHeight = 50f; // height of snowball
@@ -81,7 +81,7 @@ public class playerController : MonoBehaviour
         if (pIndex == 2)
         {
             if (playerTwoInput.Player2.Jump.triggered && isGrounded) rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse); // if the player has pressed space adn is grounded push the player up
-            if (playerTwoInput.Player2.Throw.triggered && canThrow && playerTwoSBalls > 0) StartCoroutine(ThrowProjectile());
+            
         }
 
     }
@@ -104,7 +104,7 @@ public class playerController : MonoBehaviour
     {
         canThrow = false; // cannot throw 
         if(pIndex == 1) playerOneSBalls--; // decrement number of snowballs 
-        if(pIndex == 2) playerTwoSBalls--;
+        
         anim.SetTrigger("Throw"); //allows the throw animation to play
 
         Rigidbody2D snowBall; // reference to our rigidbody
